@@ -1,4 +1,4 @@
-const urlRoot = 'https://haivo-charity.herokuapp.com/';
+const urlRoot = 'http://localhost:8080/';
 var getJson = function (uri) {
     var dataUrl = urlRoot + uri;
     return $.ajax(
