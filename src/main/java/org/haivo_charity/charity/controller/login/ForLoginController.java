@@ -30,7 +30,7 @@ public class ForLoginController {
             if(!vote.isAccepted()){
                 Account account =accountService.findByUsername(principal.getName());
                 if ((account.getRoles().equals("ADMIN")) || (vote.getProposal_by().equals(principal.getName()))){
-                    ModelAndView modelAndView = new ModelAndView("/proposal/editProposal");
+                    ModelAndView modelAndView = new ModelAndView("proposal/editProposal");
                     modelAndView.addObject("proposal",vote);
                     Iterable<Category> categories = categoryService.findAll();
                     modelAndView.addObject("categories", categories);
@@ -56,7 +56,7 @@ public class ForLoginController {
                 }
             }
         }
-        return new ModelAndView("/error_404");
+        return new ModelAndView("error_404");
     }
 
     @PostMapping("/editProposal")
@@ -64,7 +64,7 @@ public class ForLoginController {
         Vote vote = voteService.findById(newVote.getId());
         if (vote!=null){
             if(!vote.isAccepted()){
-                ModelAndView modelAndView = new ModelAndView("/proposal/editProposal");
+                ModelAndView modelAndView = new ModelAndView("proposal/editProposal");
                 Iterable<Category> categories = categoryService.findAll();
                 modelAndView.addObject("proposal",vote);
                 modelAndView.addObject("categories", categories);
@@ -97,6 +97,6 @@ public class ForLoginController {
                 return modelAndView;
             }
         }
-        return new ModelAndView("/error_404");
+        return new ModelAndView("error_404");
     }
 }

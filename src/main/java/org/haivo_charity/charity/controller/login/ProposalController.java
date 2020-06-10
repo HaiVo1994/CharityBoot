@@ -42,7 +42,7 @@ public class ProposalController {
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
     public ModelAndView goProposalPage() {
-        ModelAndView modelAndView = new ModelAndView("/proposal/requestCreate");
+        ModelAndView modelAndView = new ModelAndView("proposal/requestCreate");
         VoteFileUpload voteFileUpload = new VoteFileUpload();
         Iterable<Category> categories = categoryService.findAll();
         modelAndView.addObject("voteFileUpload", voteFileUpload);
@@ -51,11 +51,11 @@ public class ProposalController {
     }
     @RequestMapping(value = "/yourList", method = RequestMethod.GET)
     public ModelAndView listProposal(){
-        return new ModelAndView("/proposal/listProposal");
+        return new ModelAndView("proposal/listProposal");
     }
     @RequestMapping(value = "/yourListVote", method = RequestMethod.GET)
     public ModelAndView listVote(){
-        return new ModelAndView("/proposal/listProposal");
+        return new ModelAndView("proposal/listProposal");
     }
 
     @InitBinder
@@ -151,7 +151,7 @@ public class ProposalController {
         voteService.createProposal(vote, voteImages);
 
         Iterable<Category> categories = categoryService.findAll();
-        ModelAndView modelAndView = new ModelAndView("/proposal/requestCreate");
+        ModelAndView modelAndView = new ModelAndView("proposal/requestCreate");
         modelAndView.addObject("voteFileUpload", new VoteFileUpload());
         modelAndView.addObject("categories", categoryService.findAll());
         modelAndView.addObject("proposalSuccess", "Đề Nghị Của Bạn Đã Được Gửi, Quản Lý Sẽ Xem Xét Nó");

@@ -78,10 +78,10 @@ public class EventManagerController {
 
     @GetMapping("/acceptRegister")
     public ModelAndView acceptRegister(){
-        return new ModelAndView("/event/list");
+        return new ModelAndView("event/list");
     }
     @GetMapping("/mustFinish")
     public ModelAndView mustFinish(){
-        return new ModelAndView("/event/list");
+        return new ModelAndView("event/list");
     }
 }

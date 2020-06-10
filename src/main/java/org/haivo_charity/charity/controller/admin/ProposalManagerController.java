@@ -15,6 +15,6 @@ public class ProposalManagerController {
     }
     @GetMapping("/proposal/{id}")
     public ModelAndView getProposal(@PathVariable Long id){
-        return new ModelAndView("/admin/proposal_manager/single");
+        return new ModelAndView("admin/proposal_manager/single");
     }
 }

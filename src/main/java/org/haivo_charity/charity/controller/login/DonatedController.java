@@ -10,6 +10,6 @@ import org.springframework.web.servlet.ModelAndView;
 public class DonatedController {
     @GetMapping("/list")
     public ModelAndView listDonated(){
-        return new ModelAndView("/donate/donated");
+        return new ModelAndView("donate/donated");
     }
 }
