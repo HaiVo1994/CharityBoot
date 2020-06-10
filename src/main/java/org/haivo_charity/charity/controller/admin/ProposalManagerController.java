@@ -11,7 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 public class ProposalManagerController {
     @GetMapping("/")
     public ModelAndView listProposal(){
-        return new ModelAndView("/admin/proposal_manager/list");
+        return new ModelAndView("admin/proposal_manager/list");
     }
     @GetMapping("/proposal/{id}")
     public ModelAndView getProposal(@PathVariable Long id){

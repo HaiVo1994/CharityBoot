@@ -77,7 +77,7 @@ public class ProposalController {
     public ModelAndView createProposal(Principal principal, HttpServletRequest request,
                                        @ModelAttribute VoteFileUpload voteFileUpload
     ) {
-        String uploadRootPath = request.getServletContext().getRealPath("img");
+        String uploadRootPath = request.getServletContext().getRealPath("UploadImg");
 //        try {
 //            URL res = getClass().getClassLoader().getResource("database.properties");
 //            assert res != null;
