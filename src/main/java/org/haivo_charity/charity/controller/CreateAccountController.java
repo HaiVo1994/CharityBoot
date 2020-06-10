@@ -20,11 +20,11 @@ public class CreateAccountController {
         if (principal==null){
             ModelAndView modelAndView = new ModelAndView();
             modelAndView.addObject("userName", "");
-            modelAndView.setViewName("/account/login");
+            modelAndView.setViewName("account/login");
             return modelAndView;
         }
         else {
-            return new ModelAndView("/donate/home");
+            return new ModelAndView("donate/home");
         }
     }
 
@@ -35,14 +35,14 @@ public class CreateAccountController {
     public ModelAndView goCreateAccount(Principal principal) {
         ModelAndView modelAndView = new ModelAndView();
         if (principal==null) {
-            modelAndView.setViewName("/account/create_account");
+            modelAndView.setViewName("account/create_account");
             modelAndView.addObject("username", "");
             modelAndView.addObject("password", "");
             modelAndView.addObject("yourName", "");
             modelAndView.addObject("yourEmail", "");
             modelAndView.addObject("yourPhone", "");
         } else {
-            modelAndView.setViewName("/donate/home");
+            modelAndView.setViewName("donate/home");
         }
         return modelAndView;
     }
@@ -58,7 +58,7 @@ public class CreateAccountController {
         if (principal==null) {
             String result = accountService.create(userName,password,yourName,yourEmail,yourPhone);
             if(result.equals("")){
-                modelAndView.setViewName("/account/autoLogin");
+                modelAndView.setViewName("account/autoLogin");
                 modelAndView.addObject("userName", userName);
                 modelAndView.addObject("password", password);
             }
@@ -72,7 +72,7 @@ public class CreateAccountController {
                 modelAndView.addObject("result", result);
             }
         } else {
-            modelAndView.setViewName("/donate/home");
+            modelAndView.setViewName("donate/home");
         }
         return modelAndView;
     }
@@ -82,7 +82,7 @@ public class CreateAccountController {
         Account account = accountService.findByUsername(principal.getName());
         ModelAndView modelAndView = new ModelAndView();
         if (account != null) {
-            modelAndView.setViewName("/account/change_password");
+            modelAndView.setViewName("account/change_password");
             account.setPassword("");
             modelAndView.addObject("account", account);
         } else {
@@ -99,7 +99,7 @@ public class CreateAccountController {
                                       @RequestParam("yourEmail") String yourEmail,
                                       @RequestParam("yourPhone") String yourPhone) {
         Account accountOrigin = accountService.findByUsername(principal.getName());
-        ModelAndView modelAndView = new ModelAndView("/account/change_password");
+        ModelAndView modelAndView = new ModelAndView("account/change_password");
         if ((accountOrigin != null) && (userName.equals(principal.getName()))) {
             Account account = accountService.update(accountOrigin,principal.getName(), oldPassword, newPassword, yourName,yourEmail, yourPhone);
             if (account!=null){
