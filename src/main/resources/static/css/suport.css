@@ -47,10 +47,11 @@ p.messenger-form{
     border-width: 1px;
 }
 .main-card{
-    background-color: rgba(153,255,116,0.76);
+    background-color: rgb(176, 241, 184);
     border-radius: 3%;
-    border-color: rgba(40,77,38,0.76);
-    padding: 3%;
+    border-color: white;
+    border-style: solid;
+    padding: 5%;
 }
 .main-card > div.causes > div.causes-img{
     height: 160px;
@@ -59,7 +60,7 @@ p.messenger-form{
     height: 480px;
 }
 .main-card > * {
-    color: rgba(141,118,116,0.76);
+    color: black;
 }
 .main-card> div.causes > div.causes-content > p{
     max-height: 80px;
